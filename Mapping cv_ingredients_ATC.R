@@ -39,7 +39,7 @@ cv_drug_product_ingredients <- tbl(cv, table_name_cv_drug_product_ingredients)%>
 
 #clean up nhp_med names: remove all punctuation, extra spaces:                                                   
 # nhp_med<-nhptables[[2]]
-nhp_med<-fread('nhp_med.csv',header=TRUE,sep=",",stringsAsFactors = F)
+nhp_med<-fread('./Data/nhp_med.csv',header=TRUE,sep=",",stringsAsFactors = F)
 nhp_med[nhp_med==""]<-NA
 nhp_med<-nhp_med[!is.na(nhp_med$proper_name),]  ## remove NAs in proper name
 
