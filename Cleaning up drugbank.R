@@ -3,7 +3,7 @@ library(tidyr)
 
 #clean up drugbank for mapping
 
-drugbank<-fread('drugbank.csv',header=T,sep=',',stringsAsFactors = F)
+drugbank<-fread('./Data/drugbank.csv',header=T,sep=',',stringsAsFactors = F)
 drugbank<-drugbank%>%select(atc_code,name,synonyms)%>%mutate(atc=str_extract_all(atc_code,"\\([[:alnum:]]{7}\\)"))
 drugbank[drugbank==""]<-NA
 
@@ -24,7 +24,7 @@ drugbank<-drugbank%>%
 drugbank$atc[drugbank$atc=="NA"]<-NA  
 
 #Load data from updated WHO ATC code list and clean the table:                               
-atc<-fread('updated_atc.csv',header=T,sep=',',stringsAsFactors = F)
+atc<-fread('./Data/updated_atc.csv',header=T,sep=',',stringsAsFactors = F)
 
 
 #concatenate ing with multiple ATC into one row:
